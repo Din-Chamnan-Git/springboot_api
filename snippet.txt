@@ -1,0 +1,52 @@
+┌─────────────────────────────────────────────────────────────┐
+│             DEVELOPMENT ORDER (Bottom-Up Approach)          │
+└─────────────────────────────────────────────────────────────┘
+
+Week 1: Independent Entities
+├── Day 1-2: Category (Complete CRUD)
+│   ├── Entity → Repository → DTO → Service → Controller → Test ✅
+│
+├── Day 3-4: Brand (Complete CRUD)
+│   ├── Entity → Repository → DTO → Service → Controller → Test✅
+│
+└── Day 5: Supplier (Complete CRUD)
+    ├── Entity → Repository → DTO → Service → Controller → Test✅
+
+Week 2: Main Entity with Relationships
+├── Day 1-3: Product (with Category & Brand relationships)
+│   ├── Update Product Entity (add @ManyToOne)
+│   ├── Update ProductRequestDTO (add categoryId, brandId)
+│   ├── Update ProductResponseDTO (add nested Category, Brand)
+│   ├── Update ProductService (fetch and set relationships)
+│   ├── Update ProductController
+│   └── Test all scenarios
+│
+├── Day 4: Custom Queries
+│   ├── Find products by category
+│   ├── Find products by brand
+│   ├── Search products by name
+│   └── Filter by price range
+│
+└── Day 5: Pagination & Sorting
+    ├── Add pagination to GET all products
+    └── Add sorting options
+
+Week 3: Advanced Features
+├── Day 1-2: ProductImage
+│   ├── Entity → Repository → DTO → Service → Controller
+│   ├── Upload image functionality
+│   └── Associate images with products
+│
+├── Day 3-4: ProductSupplier (Many-to-Many)
+│   ├── Create join table
+│   ├── Add supplier to product
+│   └── Get products by supplier
+│
+└── Day 5: Testing & Refinement
+    ├── Write unit tests
+    ├── Test all relationships
+    └── Fix bugs
+
+
+“I trust no one but myself.”
+✅

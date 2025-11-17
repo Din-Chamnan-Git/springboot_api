@@ -1,0 +1,78 @@
+┌──────────────────────────────────────────────────────────────┐
+│                     PRODUCT DATABASE SCHEMA                   │
+└──────────────────────────────────────────────────────────────┘
+
+┌─────────────────┐
+│    Category     │
+├─────────────────┤
+│ id (PK)         │
+│ name            │
+│ description     │
+│ parent_id (FK)  │──┐ (self-referencing for subcategories)
+│ is_active       │  │
+│ created_at      │<─┘
+│ updated_at      │
+└────────┬────────┘
+         │ 1
+         │
+         │ M
+┌────────▼────────┐         ┌─────────────────┐
+│    Product      │         │      Brand      │
+├─────────────────┤         ├─────────────────┤
+│ id (PK)         │         │ id (PK)         │
+│ name            │         │ name            │
+│ description     │         │ description     │
+│ price           │    M    │ logo_url        │
+│ stock_quantity  │◄────────│ website         │
+│ sku             │    1    │ is_active       │
+│ category_id(FK) │         │ created_at      │
+│ brand_id (FK)   │─────────┤ updated_at      │
+│ is_active       │         └─────────────────┘
+│ created_at      │
+│ updated_at      │
+└────────┬────────┘
+         │ 1
+         │
+         │ M
+┌────────▼────────┐
+│ Product_Image   │
+├─────────────────┤
+│ id (PK)         │
+│ product_id (FK) │
+│ image_url       │
+│ alt_text        │
+│ is_primary      │
+│ display_order   │
+│ created_at      │
+└─────────────────┘
+
+         Product
+            │ M
+            │
+            │ M
+┌───────────▼──────────┐
+│  Product_Supplier    │  (Join Table)
+├──────────────────────┤
+│ id (PK)              │
+│ product_id (FK)      │
+│ supplier_id (FK)     │
+│ supply_price         │
+│ min_order_quantity   │
+│ lead_time_days       │
+└──────────┬───────────┘
+           │ M
+           │
+           │ 1
+┌──────────▼───────────┐
+│      Supplier        │
+├──────────────────────┤
+│ id (PK)              │
+│ name                 │
+│ contact_person       │
+│ email                │
+│ phone                │
+│ address              │
+│ is_active            │
+│ created_at           │
+│ updated_at           │
+└──────────────────────┘

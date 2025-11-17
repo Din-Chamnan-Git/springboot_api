@@ -1,0 +1,29 @@
+
+
+* Day 11/11 :
+    -------------------------------------------------------------------------------
+    # i have resaerch about how to start build project (i mean start from where to where )
+
+        Entity → Repository → RequestDTO → ResponseDTO → Mapper → Service → Controller
+
+    # create SupplierMapper and CRUDE for supplier
+
+
+    --------------------------------------------------------------------------------
+
+* Day 12/11
+
+    My bad  i have dont touch my code 2 days ago , so today i will fix it more
+
+* Day 15/11
+    i have controll and can manage some resposne what i want by check at response DTO and check Mapper class
+    (
+        - Response
+        - Mapper Class
+    )
+
+    next i have do more at brand
+
+    get brand id when get product list
+
+* Day 16/11
