@@ -24,14 +24,13 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryResponseDTO createCategory(CategoryRequestDTO categoryRequestDTO) {
-        Category parent = null;
+        // Parent category functionality is currently disabled
+        // if(categoryRequestDTO.getParentCategoryId() != null){
+        //     Category parent = categoryRepository.findById(categoryRequestDTO.getParentCategoryId())
+        //             .orElseThrow(() -> new RuntimeException("Parent Category Not Found"));
+        // }
 
-        if(categoryRequestDTO.getParentCategoryId() != null){
-            parent = categoryRepository.findById(categoryRequestDTO.getParentCategoryId())
-                    .orElseThrow(() -> new RuntimeException("Parent Category Not Found"));
-        }
-
-        Category category = categoryMapper.toEntity(categoryRequestDTO, parent);
+        Category category = categoryMapper.toEntity(categoryRequestDTO);
 
         categoryRepository.save(category);
 
@@ -40,7 +39,8 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<CategoryResponseDTO> getAllCategories() {
-        return categoryMapper.toResponse(categoryRepository.findAll());
+        List<Category> categories = categoryRepository.findAll();
+        return categoryMapper.toResponse(categories);
     }
 
 

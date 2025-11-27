@@ -1,7 +1,7 @@
 package com.learn.pro1.dto.request;
 
-import jakarta.persistence.Column;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.util.List;
@@ -9,9 +9,9 @@ import java.util.List;
 @Data
 public class ProductRequestDTO {
 
-
+    @NotNull(message = "Product name is required")
+    @Size(min = 3, max = 255, message = "Product name must be between 3 and 255 characters")
     private String name;
-
 
     private String sku;
 
@@ -27,6 +27,7 @@ public class ProductRequestDTO {
 
     private Long brandId;
 
-    private List<Long> supplierIds;
+
+//    private List<Long> supplierIds;
 
 }

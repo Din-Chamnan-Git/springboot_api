@@ -37,10 +37,10 @@ public class ProductController {
 //    }
 //
 
-//    @GetMapping("/all")
-//    public ResponseEntity<ApiResponse<List<ProductResponseDTO>>> getAllProducts(){
-//        return ResponseEntity.ok(new ApiResponse<>(true, "Products retrieved successfully", productService.getAllProducts()));
-//    }
+    @GetMapping("/all")
+    public ResponseEntity<ApiResponse<List<ProductResponseDTO>>> getAllProducts(){
+        return ResponseEntity.ok(new ApiResponse<>(true, "Products retrieved successfully", productService.getAllProducts()));
+    }
 
 //
 //    // update product by id

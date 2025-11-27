@@ -4,6 +4,7 @@ import com.learn.pro1.dto.request.BrandRequestDTO;
 import com.learn.pro1.dto.response.BrandResponeDTO;
 import com.learn.pro1.entity.Brand;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import java.util.List;
 

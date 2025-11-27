@@ -23,12 +23,14 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
     private final SupplierRepository supplierRepository;
     private final BrandRepository brandRepository;
+    private final ProductMapper ProductMapper;
 
-    public ProductServiceImpl(ProductRepository productRepository, CategoryRepository categoryRepository, SupplierRepository supplierRepository, BrandRepository brandRepository){
+    public ProductServiceImpl(ProductRepository productRepository, CategoryRepository categoryRepository, SupplierRepository supplierRepository, BrandRepository brandRepository, ProductMapper productMapper){
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;
         this.supplierRepository = supplierRepository;
         this.brandRepository = brandRepository;
+        ProductMapper = productMapper;
     }
 
     @Override
@@ -42,20 +44,32 @@ public class ProductServiceImpl implements ProductService {
 
         product.setCategory(category);
 
-        if(productRequestDTO.getSupplierIds() != null  && !productRequestDTO.getSupplierIds().isEmpty()){
-            List<Supplier> suppliers = supplierRepository.findAllById(productRequestDTO.getSupplierIds());
-            product.setSuppliers(suppliers);
-        }
 
-        //brand query
-        Brand b = brandRepository.findById(productRequestDTO.getBrandId())
-                .orElseThrow( () -> new RuntimeException("Brand Not Found"));
+        Brand brand = brandRepository.findById(productRequestDTO.getBrandId())
+                .orElseThrow(() -> new RuntimeException("Brand Not Found"));
 
-        product.setBrand(b);
+        product.setBrand(brand);
+
+//        if(productRequestDTO.getSupplierIds() != null  && !productRequestDTO.getSupplierIds().isEmpty()){
+//            List<Supplier> suppliers = supplierRepository.findAllById(productRequestDTO.getSupplierIds());
+//            product.setSuppliers(suppliers);
+//        }
+
+//        //brand query
+//        Brand b = brandRepository.findById(productRequestDTO.getBrandId())
+//                .orElseThrow( () -> new RuntimeException("Brand Not Found"));
+//
+//        product.setBrand(b);
 
         productRepository.save(product);
 
         return ProductMapper.toDTO(product);
+    }
+
+    @Override
+    public List<ProductResponseDTO> getAllProducts() {
+        List<Product> products = productRepository.findAll();
+        return ProductMapper.toDTO(products);
     }
 
 //    @Override

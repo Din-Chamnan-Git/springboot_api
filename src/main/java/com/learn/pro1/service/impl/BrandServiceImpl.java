@@ -33,7 +33,6 @@ public class BrandServiceImpl implements BrandService {
 
     }
 
-
     @Override
     public List<BrandResponeDTO> getBrandAll(){
         List<Brand> b = brandRepository.findAll();

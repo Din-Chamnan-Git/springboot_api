@@ -5,7 +5,6 @@ import com.learn.pro1.dto.response.CategoryResponseDTO;
 import com.learn.pro1.response.ApiResponse;
 import com.learn.pro1.service.CategoryService;
 import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

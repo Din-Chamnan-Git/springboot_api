@@ -14,7 +14,4 @@ public class BrandResponeDTO {
     private String logoUrl;
 
 
-    private LocalDateTime createdDate;
-    private LocalDateTime updatedDate;
-
 }

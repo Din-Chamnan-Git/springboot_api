@@ -13,22 +13,23 @@ import org.springframework.stereotype.Service;
 public class SupplierServiceImpl implements SupplierService {
 
     private final SupplierRepository supplierRepository;
+    private final SupplierMapper supplierMapper;
 
-
-    public SupplierServiceImpl(SupplierRepository supplierRepository) {
+    public SupplierServiceImpl(SupplierRepository supplierRepository, SupplierMapper supplierMapper) {
         this.supplierRepository = supplierRepository;
+        this.supplierMapper = supplierMapper;
     }
 
 
     @Override
     public SupplierResponseDTO createSupplier(SupplierRequestDTO supplierRequestDTO ) {
 
-        Supplier supplier = SupplierMapper.toEntity(supplierRequestDTO);
+        Supplier supplier = supplierMapper.toEntity(supplierRequestDTO);
 
 
        supplierRepository.save(supplier);
 
-        return SupplierMapper.toResponse(supplier);
+        return supplierMapper.toResponse(supplier);
 
     }
 }

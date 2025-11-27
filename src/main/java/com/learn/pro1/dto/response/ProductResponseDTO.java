@@ -1,6 +1,6 @@
 package com.learn.pro1.dto.response;
 
-import com.learn.pro1.entity.Supplier;
+import com.learn.pro1.entity.Brand;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -18,10 +18,10 @@ public class ProductResponseDTO {
     private String categoryName;
 //    private List<String> subCategories;
 
-    private List<SupplierResponseDTO> suppliers;
+//    private List<SupplierResponseDTO> suppliers;
 
-    private Long brandId;
+    private Brand brand;
 
-    private LocalDateTime createdDate;
+//    private LocalDateTime createdDate;
 
 }

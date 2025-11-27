@@ -21,14 +21,12 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Product name cannot be blank")
     @Column(nullable = false)
     private String name;
 
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Positive(message = "Price must be positive")
     @Column(nullable = false)
     private double price;
 
@@ -50,10 +48,10 @@ public class Product {
     @JoinColumn(name = "brand_id")
     private Brand brand;
 
-
-    // Relation One Pro Has Many Image
-    @OneToMany(mappedBy = "product" , cascade = CascadeType.ALL , orphanRemoval = true)
-    private List<ProductImage> images = new ArrayList<>();
+//
+//    // Relation One Pro Has Many Image
+//    @OneToMany(mappedBy = "product" , cascade = CascadeType.ALL , orphanRemoval = true)
+//    private List<ProductImage> images = new ArrayList<>();
 
 
     @ManyToMany

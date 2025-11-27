@@ -27,3 +27,28 @@
     get brand id when get product list
 
 * Day 16/11
+
+
+* Day 21/11
+
+    i have research about source and target if Mapstruct
+
+    - scource is (input data that has already)
+    - target is (output data that source put from scource )
+    - so about map struct we need make scoure you now about toEntuty and toResponse
+
+* 22/11
+
+* 23/11
+    i have do intergrate with product mapper do toget ther with brand
+
+* 26/11
+
+    Security + JWT
+
+    JwtUtils	= Create + validate tokens	Make ID cards
+    JwtAuthenticationFilter = 	Check token in every request	Security checkpoint
+    CustomUserDetailsService = 	Load user from DB	Find employee in list
+    SecurityConfig  = 	Configure rules + filters	Build company security rules
+
+
